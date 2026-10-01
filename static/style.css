@@ -51,6 +51,7 @@ body {
     gap: 8px;
     font-size: 11px;
     color: #94a3b8;
+    margin-top: 8px;
 }
 
 .status-dot {
@@ -59,6 +60,7 @@ body {
     border-radius: 50%;
     background: #ef4444;
     box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+    transition: all 0.3s;
 }
 
 .status-dot.connected {
@@ -88,6 +90,18 @@ body {
     font-size: 12px;
     line-height: 1.5;
     word-wrap: break-word;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .msg.user {
@@ -133,12 +147,19 @@ body {
     border-radius: 4px;
     font-family: monospace;
     font-size: 11px;
+    transition: all 0.2s;
 }
 
 #chatForm input:focus {
     outline: none;
     border-color: #00ffff;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    color: #00ffff;
+}
+
+#chatForm input::placeholder {
+    color: #00ff88;
+    opacity: 0.5;
 }
 
 #chatForm button {
@@ -163,6 +184,11 @@ body {
     transform: scale(0.95);
 }
 
+#chatForm button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .quick-keywords {
     text-align: center;
     color: #94a3b8;
@@ -180,6 +206,10 @@ body {
     overflow-y: auto;
     border-left: 1px solid #1e1e24;
     border-right: 1px solid #1e1e24;
+}
+
+.output-panel .panel-header {
+    margin-bottom: 15px;
 }
 
 .network-canvas {
@@ -208,6 +238,7 @@ body {
     gap: 15px;
     justify-content: center;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .node {
@@ -248,7 +279,7 @@ body {
     height: 100%;
     background: linear-gradient(90deg, #10b981, #00ff88);
     width: 0%;
-    transition: width 0.3s ease-out;
+    transition: width 0.4s ease-out;
     box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
 }
 
@@ -288,7 +319,7 @@ body {
     border: 1px solid #1e1e24;
     border-radius: 8px;
     padding: 12px;
-    margin-top: auto;
+    margin-bottom: 15px;
     box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);
 }
 
@@ -327,6 +358,14 @@ code {
     color: #f472b6;
 }
 
+.output-panel h3 {
+    margin: 12px 0 8px 0;
+    color: #00ff88;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 /* ===== RIGHT PANEL: TELEMETRY CONTROL ROOM ===== */
 .telemetry-panel {
     background: linear-gradient(180deg, #0b0b0e 0%, #151520 100%);
@@ -337,6 +376,10 @@ code {
     flex-direction: column;
     overflow-y: auto;
     box-shadow: inset 10px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.telemetry-panel .panel-header {
+    margin-bottom: 15px;
 }
 
 .telemetry-section {
@@ -381,12 +424,17 @@ code {
     width: 50%;
     background: linear-gradient(90deg, #10b981, #00ff88);
     transition: all 0.3s ease-out;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
 }
 
 hr {
     border: none;
     border-top: 1px dashed #1e1e24;
     margin: 12px 0;
+}
+
+.telemetry-panel p {
+    margin: 4px 0;
 }
 
 /* ===== SCROLLBAR STYLING ===== */
@@ -407,22 +455,52 @@ hr {
     background: #00ffff;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1400px) {
     .dashboard-container {
         grid-template-columns: 300px 1fr 250px;
     }
-    
+
     .control-panel {
         padding: 15px;
     }
-    
+
     .node {
         width: 90px;
         padding: 10px;
     }
-    
+
     .node h3 {
         font-size: 11px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .control-panel {
+        grid-column: 1;
+        grid-row: 1;
+        border-right: none;
+        border-bottom: 2px solid #00ff88;
+        max-height: 25vh;
+    }
+
+    .output-panel {
+        grid-column: 1;
+        grid-row: 2;
+        border-left: none;
+        border-right: none;
+    }
+
+    .telemetry-panel {
+        grid-column: 1;
+        grid-row: 3;
+        border-left: none;
+        border-top: 2px solid #00ffff;
+        max-height: 25vh;
     }
 }
