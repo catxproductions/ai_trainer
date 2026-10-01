@@ -1,0 +1,55 @@
+body {
+    margin: 0; font-family: monospace; background-color: #060608; color: #cbd5e1;
+}
+
+.dashboard-container {
+    display: flex; height: 100vh;
+}
+
+.control-panel {
+    width: 400px; background-color: #0b0b0e; border-right: 1px solid #1e1e24;
+    padding: 20px; display: flex; flex-direction: column; box-sizing: border-box;
+}
+
+.chat-box {
+    flex: 1; background-color: #010102; border: 1px solid #1e1e24;
+    border-radius: 6px; padding: 12px; overflow-y: auto; margin-bottom: 12px;
+}
+
+.msg { margin: 8px 0; font-size: 13px; line-height: 1.4; }
+.msg.user { color: #60a5fa; }
+.msg.bot { color: #f43f5e; }
+.msg.error { color: #ef4444; }
+
+#chatForm { display: flex; gap: 8px; }
+#chatForm input { flex: 1; background: #010102; border: 1px solid #1e1e24; color: #fff; padding: 10px; border-radius: 4px; font-family: monospace; }
+#chatForm button { background: #6366f1; border: none; color: white; padding: 0 16px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+
+.output-panel {
+    flex: 1; padding: 24px; box-sizing: border-box; display: flex; flex-direction: column;
+}
+
+.network-canvas {
+    background: #010102; border: 1px solid #1e1e24; border-radius: 8px;
+    padding: 35px; margin-bottom: 24px; display: flex; justify-content: center;
+}
+
+.node-grid { display: flex; gap: 20px; }
+
+.node {
+    background: #0b0b0e; border: 2px solid #1e1e24; border-radius: 8px;
+    padding: 16px; width: 130px; text-align: center; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.node h3 { margin: 0 0 6px 0; font-size: 14px; color: #fff; text-transform: uppercase; }
+.node .weight { margin: 0; font-size: 11px; color: #94a3b8; }
+
+/* Glowing properties for active neural nodes */
+.node.active-winner {
+    border-color: #10b981; background: #022c22;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    transform: scale(1.05);
+}
+
+.diagnostics-card { background: #0b0b0e; border: 1px solid #1e1e24; padding: 16px; border-radius: 6px; }
+code { background: #1e1e24; padding: 2px 6px; border-radius: 3px; color: #f472b6; }
