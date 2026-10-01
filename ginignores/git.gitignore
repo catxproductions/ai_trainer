@@ -1,0 +1,13 @@
+# Python operational caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local text files storing AI memory dumps 
+memory_log.txt
+
+# Environment variables or configuration files
+.env
+venv/
+env/
