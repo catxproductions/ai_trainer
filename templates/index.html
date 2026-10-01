@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JamesBot Local AI Matrix</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- NEURAL INTERFACE BLOCK -->
+        <aside class="control-panel">
+            <h2>🧠 JamesBot Neural Hub</h2>
+            <div class="chat-box" id="chatWindow">
+                <p class="msg error">AI Backbone Online. Matrix layer operations compiled using NumPy arrays.</p>
+            </div>
+            <form id="chatForm">
+                <input type="text" id="userInput" placeholder="Test the neural weights..." required autocomplete="off">
+                <button type="submit">Execute</button>
+            </form>
+        </aside>
+
+        <!-- LIVE MODEL WEIGHTS MONITOR -->
+        <main class="output-panel">
+            <h2>🔮 Hidden Output Layer Activation</h2>
+            
+            <div class="network-canvas">
+                <div class="node-grid">
+                    <div class="node" id="node-greetings"><h3>Greetings</h3><p class="weight">Probability: 0.0</p></div>
+                    <div class="node" id="node-tech"><h3>Tech</h3><p class="weight">Probability: 0.0</p></div>
+                    <div class="node" id="node-gaming"><h3>Gaming</h3><p class="weight">Probability: 0.0</p></div>
+                    <div class="node" id="node-school"><h3>School</h3><p class="weight">Probability: 0.0</p></div>
+                </div>
+            </div>
+
+            <h3>📊 Synaptic Backpropagation Telemetry</h3>
+            <div class="diagnostics-card" id="analyticsBox">
+                <p>Awaiting feedforward data vector parameters...</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
