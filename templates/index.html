@@ -3,42 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JamesBot Local AI Matrix</title>
+    <title>🧠 JamesBot Neural AI Dashboard v4.0</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-
     <div class="dashboard-container">
-        <!-- NEURAL INTERFACE BLOCK -->
+        <!-- LEFT PANEL: CHAT INTERFACE -->
         <aside class="control-panel">
-            <h2>🧠 JamesBot Neural Hub</h2>
-            <div class="chat-box" id="chatWindow">
-                <p class="msg error">AI Backbone Online. Matrix layer operations compiled using NumPy arrays.</p>
-            </div>
-            <form id="chatForm">
-                <input type="text" id="userInput" placeholder="Test the neural weights..." required autocomplete="off">
-                <button type="submit">Execute</button>
-            </form>
-        </aside>
-
-        <!-- LIVE MODEL WEIGHTS MONITOR -->
-        <main class="output-panel">
-            <h2>🔮 Hidden Output Layer Activation</h2>
-            
-            <div class="network-canvas">
-                <div class="node-grid">
-                    <div class="node" id="node-greetings"><h3>Greetings</h3><p class="weight">Probability: 0.0</p></div>
-                    <div class="node" id="node-tech"><h3>Tech</h3><p class="weight">Probability: 0.0</p></div>
-                    <div class="node" id="node-gaming"><h3>Gaming</h3><p class="weight">Probability: 0.0</p></div>
-                    <div class="node" id="node-school"><h3>School</h3><p class="weight">Probability: 0.0</p></div>
+            <div class="panel-header">
+                <h2>🧠 JamesBot Neural Hub</h2>
+                <div class="connection-indicator">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span id="statusText">Connecting...</span>
                 </div>
             </div>
 
+            <div class="chat-box" id="chatWindow">
+                <p class="msg error">🔄 Initializing neural matrix...</p>
+            </div>
+
+            <form id="chatForm">
+                <input 
+                    type="text" 
+                    id="userInput" 
+                    placeholder="Test the neural weights..." 
+                    required 
+                    autocomplete="off"
+                >
+                <button type="submit" id="sendBtn">Execute</button>
+            </form>
+
+            <div class="quick-keywords">
+                <small>💡 Try: hello, code, games, school</small>
+            </div>
+        </aside>
+
+        <!-- CENTER PANEL: NETWORK VISUALIZATION -->
+        <main class="output-panel">
+            <div class="panel-header">
+                <h2>⚡ Neural Network Visualization</h2>
+            </div>
+
+            <!-- Real-time Activation Nodes -->
+            <div class="network-canvas">
+                <div class="network-title">Output Layer Activation</div>
+                <div class="node-grid">
+                    <div class="node" id="node-greetings">
+                        <div class="node-icon">👋</div>
+                        <h3>Greetings</h3>
+                        <div class="activation-bar">
+                            <div class="activation-fill" id="greetings-fill"></div>
+                        </div>
+                        <p class="weight" id="weight-greetings">0.00</p>
+                    </div>
+                    <div class="node" id="node-tech">
+                        <div class="node-icon">💻</div>
+                        <h3>Tech</h3>
+                        <div class="activation-bar">
+                            <div class="activation-fill" id="tech-fill"></div>
+                        </div>
+                        <p class="weight" id="weight-tech">0.00</p>
+                    </div>
+                    <div class="node" id="node-gaming">
+                        <div class="node-icon">🎮</div>
+                        <h3>Gaming</h3>
+                        <div class="activation-bar">
+                            <div class="activation-fill" id="gaming-fill"></div>
+                        </div>
+                        <p class="weight" id="weight-gaming">0.00</p>
+                    </div>
+                    <div class="node" id="node-school">
+                        <div class="node-icon">📚</div>
+                        <h3>School</h3>
+                        <div class="activation-bar">
+                            <div class="activation-fill" id="school-fill"></div>
+                        </div>
+                        <p class="weight" id="weight-school">0.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Synaptic Connection Diagram -->
+            <div class="synaptic-diagram">
+                <div class="diagram-title">Synaptic Connection Map</div>
+                <canvas id="synapticCanvas" width="600" height="200"></canvas>
+            </div>
+
+            <!-- Learning Metrics -->
             <h3>📊 Synaptic Backpropagation Telemetry</h3>
             <div class="diagnostics-card" id="analyticsBox">
-                <p>Awaiting feedforward data vector parameters...</p>
+                <p>Awaiting neural inference data...</p>
+            </div>
+
+            <!-- Real-time Learning Curve -->
+            <div class="learning-metrics">
+                <div class="metric-title">Learning Progress</div>
+                <canvas id="learningCurve" width="600" height="120"></canvas>
             </div>
         </main>
+
+        <!-- RIGHT PANEL: ADVANCED TELEMETRY -->
+        <aside class="telemetry-panel">
+            <div class="panel-header">
+                <h3>🔮 Neural Introspection</h3>
+            </div>
+
+            <div class="telemetry-section">
+                <div class="telemetry-label">Active Topic</div>
+                <div class="telemetry-value" id="telemetry-topic">IDLE</div>
+            </div>
+
+            <div class="telemetry-section">
+                <div class="telemetry-label">Learning Turns</div>
+                <div class="telemetry-value" id="telemetry-turns">0</div>
+            </div>
+
+            <div class="telemetry-section">
+                <div class="telemetry-label">Learning Rate</div>
+                <div class="telemetry-value" id="telemetry-lr">0.2000</div>
+            </div>
+
+            <div class="telemetry-section">
+                <div class="telemetry-label">Error Rate</div>
+                <div class="telemetry-value" id="telemetry-error">0.0000</div>
+            </div>
+
+            <div class="telemetry-section">
+                <div class="telemetry-label">Confidence</div>
+                <div class="telemetry-value" id="telemetry-confidence">0.0000</div>
+            </div>
+
+            <div class="telemetry-section">
+                <div class="telemetry-label">Gradient Magnitude</div>
+                <div class="telemetry-value" id="telemetry-gradient">0.0000</div>
+            </div>
+
+            <div class="telemetry-section">
+                <div class="telemetry-label">Active Synapses</div>
+                <div class="telemetry-value" id="telemetry-synapses">0</div>
+            </div>
+
+            <div class="telemetry-section">
+                <div class="telemetry-label">Hidden Neurons</div>
+                <div class="telemetry-value" id="telemetry-neurons">8</div>
+            </div>
+
+            <hr style="margin: 15px 0; border: 1px solid #1e1e24;">
+
+            <div class="telemetry-label">Error Trend</div>
+            <div class="error-trend" id="errorTrend">
+                <div class="trend-bar" id="trendBar"></div>
+            </div>
+
+            <div style="margin-top: 15px; padding: 10px; background: #0b0b0e; border-radius: 4px;">
+                <small style="color: #94a3b8;">🔗 Connected to FastAPI backend at localhost:8000</small>
+            </div>
+        </aside>
     </div>
 
     <script src="/static/script.js"></script>
