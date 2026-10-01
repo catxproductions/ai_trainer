@@ -3,34 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🧠 JamesBot Neural AI Dashboard v4.0</title>
+    <title>🧠 JamesBot AI Control Room v5.0</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <div class="dashboard-container">
-        <!-- LEFT PANEL: CHAT INTERFACE -->
+        <!-- LEFT PANEL: CHAT CONTROL CENTER -->
         <aside class="control-panel">
             <div class="panel-header">
                 <h2>🧠 JamesBot Neural Hub</h2>
                 <div class="connection-indicator">
                     <span class="status-dot" id="statusDot"></span>
-                    <span id="statusText">Connecting...</span>
+                    <span id="statusText">Initializing...</span>
                 </div>
             </div>
 
             <div class="chat-box" id="chatWindow">
-                <p class="msg error">🔄 Initializing neural matrix...</p>
+                <p class="msg error">⚡ Neural matrix initializing...</p>
             </div>
 
             <form id="chatForm">
                 <input 
                     type="text" 
                     id="userInput" 
-                    placeholder="Test the neural weights..." 
+                    placeholder="Chat with James..." 
                     required 
                     autocomplete="off"
                 >
-                <button type="submit" id="sendBtn">Execute</button>
+                <button type="submit" id="sendBtn">→</button>
             </form>
 
             <div class="quick-keywords">
@@ -38,15 +38,15 @@
             </div>
         </aside>
 
-        <!-- CENTER PANEL: NETWORK VISUALIZATION -->
+        <!-- CENTER PANEL: NEURAL VISUALIZATION -->
         <main class="output-panel">
             <div class="panel-header">
-                <h2>⚡ Neural Network Visualization</h2>
+                <h2>🔮 Neural Network Visualization</h2>
             </div>
 
-            <!-- Real-time Activation Nodes -->
+            <!-- Output Layer Activation Nodes -->
             <div class="network-canvas">
-                <div class="network-title">Output Layer Activation</div>
+                <div class="network-title">Output Layer Activation (Softmax Probabilities)</div>
                 <div class="node-grid">
                     <div class="node" id="node-greetings">
                         <div class="node-icon">👋</div>
@@ -85,20 +85,20 @@
 
             <!-- Synaptic Connection Diagram -->
             <div class="synaptic-diagram">
-                <div class="diagram-title">Synaptic Connection Map</div>
-                <canvas id="synapticCanvas" width="600" height="200"></canvas>
-            </div>
-
-            <!-- Learning Metrics -->
-            <h3>📊 Synaptic Backpropagation Telemetry</h3>
-            <div class="diagnostics-card" id="analyticsBox">
-                <p>Awaiting neural inference data...</p>
+                <div class="diagram-title">⚙️ Synaptic Network Architecture</div>
+                <canvas id="synapticCanvas" width="550" height="140"></canvas>
             </div>
 
             <!-- Real-time Learning Curve -->
             <div class="learning-metrics">
-                <div class="metric-title">Learning Progress</div>
-                <canvas id="learningCurve" width="600" height="120"></canvas>
+                <div class="metric-title">📈 Confidence Learning Curve (Last 50 Iterations)</div>
+                <canvas id="learningCurve" width="550" height="100"></canvas>
+            </div>
+
+            <!-- Diagnostics Card -->
+            <h3 style="margin: 12px 0 8px 0; color: #00ff88; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">📊 Inference Telemetry</h3>
+            <div class="diagnostics-card" id="analyticsBox">
+                <p>Awaiting neural inference data...</p>
             </div>
         </main>
 
@@ -120,17 +120,17 @@
 
             <div class="telemetry-section">
                 <div class="telemetry-label">Learning Rate</div>
-                <div class="telemetry-value" id="telemetry-lr">0.2000</div>
+                <div class="telemetry-value" id="telemetry-lr">0.0100</div>
+            </div>
+
+            <div class="telemetry-section">
+                <div class="telemetry-label">Confidence Score</div>
+                <div class="telemetry-value" id="telemetry-confidence">0.0000</div>
             </div>
 
             <div class="telemetry-section">
                 <div class="telemetry-label">Error Rate</div>
                 <div class="telemetry-value" id="telemetry-error">0.0000</div>
-            </div>
-
-            <div class="telemetry-section">
-                <div class="telemetry-label">Confidence</div>
-                <div class="telemetry-value" id="telemetry-confidence">0.0000</div>
             </div>
 
             <div class="telemetry-section">
@@ -145,18 +145,25 @@
 
             <div class="telemetry-section">
                 <div class="telemetry-label">Hidden Neurons</div>
-                <div class="telemetry-value" id="telemetry-neurons">8</div>
+                <div class="telemetry-value" id="telemetry-neurons">128</div>
             </div>
 
-            <hr style="margin: 15px 0; border: 1px solid #1e1e24;">
-
-            <div class="telemetry-label">Error Trend</div>
-            <div class="error-trend" id="errorTrend">
-                <div class="trend-bar" id="trendBar"></div>
+            <div class="telemetry-section">
+                <div class="telemetry-label">Error Trend</div>
+                <div class="error-trend" id="errorTrend">
+                    <div class="trend-bar" id="trendBar"></div>
+                </div>
             </div>
 
-            <div style="margin-top: 15px; padding: 10px; background: #0b0b0e; border-radius: 4px;">
-                <small style="color: #94a3b8;">🔗 Connected to FastAPI backend at localhost:8000</small>
+            <hr>
+
+            <div class="telemetry-label" style="margin-top: 12px;">Network Status</div>
+            <div style="font-size: 10px; color: #94a3b8; line-height: 1.6;">
+                <p style="margin: 4px 0;">✓ 128 Hidden Neurons</p>
+                <p style="margin: 4px 0;">✓ Adam Optimizer</p>
+                <p style="margin: 4px 0;">✓ ReLU/Softmax Activation</p>
+                <p style="margin: 4px 0;">✓ Persistent Weights</p>
+                <p style="margin: 4px 0;">✓ Real-time Backprop</p>
             </div>
         </aside>
     </div>
